@@ -10,15 +10,15 @@ import {
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeigth = Dimensions.get('window').height;
-let screenHeightHalf = Dimensions.get('window').height / 2;
-let screenWidthHalf = Dimensions.get('window').width / 2;
+let screenHeightHalf = screenHeigth / 2;
+let screenWidthHalf = screenWidth / 2;
 const PERCENTUAL_HEIGTH = 36;
 const PERCENTUAL_WIDTH = 40;
-let screenCenterHeigh = (Dimensions.get('window').height * PERCENTUAL_HEIGTH) / 100;
-let screenCenterWidth = (Dimensions.get('window').width * PERCENTUAL_WIDTH) / 100;
+let screenCenterHeigh = (screenHeigth * PERCENTUAL_HEIGTH) / 100;
+let screenCenterWidth = (screenWidth * PERCENTUAL_WIDTH) / 100;
 
 
-export default class SplashScreen extends Component {
+export default class TelaInicial extends Component {
     render() {
         return (
             <View style={{ flex: 1, flexDirection: 'column' }}>
@@ -97,7 +97,4 @@ const styles = StyleSheet.create({
         flex: 1
     }
 });
-
-AppRegistry.registerComponent('multibacter', () => multibacter);
-
 

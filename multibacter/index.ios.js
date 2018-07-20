@@ -5,18 +5,19 @@
  */
 
 import React, { Component } from 'react';
-import SplashScreen from './splashScreen/splashScreen'
+import SplashScreen from './telaInicial/telaInicial'
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
+import TelaInicial from './telaInicial/telaInicial';
 
 export default class multibacter extends Component {
   render() {
     return (
-      <SplashScreen/>
+      <TelaInicial/>
     );
   }
 }

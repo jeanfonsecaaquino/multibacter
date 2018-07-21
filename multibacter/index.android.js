@@ -5,21 +5,21 @@
  */
 
 import React, { Component } from 'react';
-import SplashScreen from './telaInicial/telaInicial'
 import {
   AppRegistry,
   StyleSheet,
   Text,
   View
 } from 'react-native';
-import TelaInicial from './telaInicial/telaInicial';
 
-export default class multibacter extends Component {
+import RootStack from './navigator';
+
+export default class Multibacter extends Component {
   render() {
     return (
-      <TelaInicial/>
+      <RootStack/>
     );
   }
 }
 
-AppRegistry.registerComponent('multibacter', () => multibacter);
+AppRegistry.registerComponent('multibacter', () => Multibacter);

@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import {
-    AppRegistry,
     StyleSheet,
-    Text,
     View,
     Image,
     Dimensions
 } from 'react-native';
+
+import Card from './card'
+import TextoLogo from '../textoLogo/textoLogo'
 
 const screenWidth = Dimensions.get('window').width;
 const screenHeigth = Dimensions.get('window').height;
 const screenHeightHalf = screenHeigth / 2;
 const screenWidthHalf = screenWidth / 2;
 const PERCENTUAL_HEIGTH = 32;
-const PERCENTUAL_WIDTH = 40;
+const PERCENTUAL_WIDTH = 38;
 const screenCenterHeigh = (screenHeigth * PERCENTUAL_HEIGTH) / 100;
 const screenCenterWidth = (screenWidth * PERCENTUAL_WIDTH) / 100;
-import Card from './card'
 
 
 export default class TelaInicial extends Component {
     render() {
         return (
             <View style={styles.viewColumn} >
-                <View style={styles.viewTextoLogo}>
-                    <Image style={{ width: screenWidth, height: 70 }} source={require("../../assets/logo_texto.png")} />
-                </View>
+                <TextoLogo screenWidth={screenWidth} />
                 <Image source={require("../../assets/logo.png")} style={styles.styleLogo} />
                 <View style={styles.viewRow}>
                     <View style={styles.viewColumn}>
@@ -60,12 +58,7 @@ const styles = StyleSheet.create({
         zIndex: 1,
         bottom: screenCenterHeigh,
         left: screenCenterWidth,
-        width: 70, height: 70
-    },
-    viewTextoLogo: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 110
+        width: 90, height: 90
     }
 });
 

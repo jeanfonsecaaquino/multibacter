@@ -20,10 +20,11 @@ const screenCenterWidth = (screenWidth * PERCENTUAL_WIDTH) / 100;
 
 
 export default class TelaInicial extends Component {
+
     render() {
         return (
             <View style={styles.viewColumn} >
-                <TextoLogo/>
+                <TextoLogo />
                 <Image source={require("../../assets/logo.png")} style={styles.styleLogo} />
                 <View style={styles.viewRow}>
                     <View style={styles.viewColumn}>

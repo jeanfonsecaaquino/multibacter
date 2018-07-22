@@ -1,6 +1,6 @@
 # Arquivo Inicial do Projeto
 
-##Considerações Importantes
+## Considerações Importantes
 
-###Android
+### Android
 chmod 755 android/gradlew

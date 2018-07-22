@@ -3,13 +3,16 @@ import {
     StyleSheet,
     View,
     Image,
+    Dimensions
 } from 'react-native';
+
+const screenWidth = Dimensions.get('window').width;
 
 export default class TextoLogo extends Component {
     render() {
         return (
             <View style={styles.viewTextoLogo}>
-                <Image style={{ width: this.props.screenWidth, height: 70 }} source={require("../../assets/logo_texto.png")} />
+                <Image style={{ width: screenWidth, height: 70 }} source={require("../../assets/logo_texto.png")} />
             </View>
         );
     }

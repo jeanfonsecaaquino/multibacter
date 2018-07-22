@@ -23,25 +23,25 @@ export default class Card extends Component {
         });
         const icones = {
             iconeSoja: {
-                imagem: require("../../assets/icone_soja.png"),
+                imagem: global.imagemSoja,
                 tela: "TelaSoja",
                 width: 70,
                 height: 70
             },
             iconeMilho: {
-                imagem: require("../../assets/icone_milho.png"),
+                imagem: global.imagemMilho,
                 tela: "TelaMilho",
                 width: 45,
                 height: 70
             },
             iconeCana: {
-                imagem: require("../../assets/icone_cana.png"),
+                imagem: global.imagemCana,
                 tela: "TelaCana",
                 width: 70,
                 height: 70
             },
             iconeAlgodao: {
-                imagem: require("../../assets/icone_algodao.png"),
+                imagem: global.imagemAlgodao,
                 tela: "TelaAlgodao",
                 width: 80,
                 height: 75

@@ -8,12 +8,35 @@ import {
     Dimensions
 } from 'react-native';
 
+
+import TextoLogo from '../../textoLogo/textoLogo'
+import TollBar from '../tollbar';
 export default class TelaAlgodao extends Component {
     render() {
+        const elementosTollBar = [
+            {
+                corFundo: global.corSoja,
+                imagem: global.imagemSoja,
+                texto: "SOJA",
+                link: "TelaSoja"
+            },
+            {
+                corFundo: global.corCana,
+                imagem: global.imagemCana,
+                texto: "CANA",
+                link: "TelaCana"
+            }, {
+                corFundo: global.corMilho,
+                imagem: global.imagemMilho,
+                texto: "MILHO",
+                link: "TelaMilho"
+            }
+        ]
         return (
-            <View>
-                <Text>Ola algodao</Text>
-            </View >
+            <View style={{ flexDirection: "column", flex: 1 }}>
+                <TextoLogo />
+                <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
+            </View>
         );
     }
 }

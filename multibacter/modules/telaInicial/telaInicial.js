@@ -23,16 +23,16 @@ export default class TelaInicial extends Component {
     render() {
         return (
             <View style={styles.viewColumn} >
-                <TextoLogo screenWidth={screenWidth} />
+                <TextoLogo/>
                 <Image source={require("../../assets/logo.png")} style={styles.styleLogo} />
                 <View style={styles.viewRow}>
                     <View style={styles.viewColumn}>
-                        <Card corFundo={"#f4ba41"} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeSoja"} navigation={this.props.navigation} />
-                        <Card corFundo={"#3a281e"} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeAlgodao"} navigation={this.props.navigation} />
+                        <Card corFundo={global.corSoja} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeSoja"} navigation={this.props.navigation} />
+                        <Card corFundo={global.corAlgodao} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeAlgodao"} navigation={this.props.navigation} />
                     </View>
                     <View style={styles.viewColumn}>
-                        <Card corFundo={"#9ead35"} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeMilho"} navigation={this.props.navigation} />
-                        <Card corFundo={"#e76632"} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeCana"} navigation={this.props.navigation} />
+                        <Card corFundo={global.corMilho} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeMilho"} navigation={this.props.navigation} />
+                        <Card corFundo={global.corCana} width={screenWidthHalf} height={screenHeightHalf} icone={"iconeCana"} navigation={this.props.navigation} />
                     </View>
                 </View>
             </View >

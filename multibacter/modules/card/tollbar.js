@@ -37,7 +37,7 @@ export default class Tollbar extends Component {
             );
         }
         return (
-            <View style={{ flexDirection: "row", flex: 1 }}>
+            <View style={{ flexDirection: "row", flex: 0}}>
                 {this.props.elementosTollBar.map((tollBarItem) => {
                     return renderizarTela(tollBarItem);
                 })}

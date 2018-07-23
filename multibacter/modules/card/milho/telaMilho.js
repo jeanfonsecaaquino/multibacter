@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
+import Title from '../title';
 
 export default class TelaMilho extends Component {
 
@@ -32,10 +33,21 @@ export default class TelaMilho extends Component {
                 link: "TelaCana"
             }
         ]
+        const conteudo = {
+            corForte : "#8e9b30" ,
+            corFraca : global.corMilho,
+            imagemIcone : {
+                imagem: global.imagemMilho,
+                width : 20,
+                height: 30,
+            },
+            texto: "MILHO"
+        }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation}/>
+                <Title conteudo={conteudo}/>
             </View>
         );
     }

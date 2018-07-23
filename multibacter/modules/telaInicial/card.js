@@ -5,17 +5,23 @@ import {
     Text,
     View,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeigth = Dimensions.get('window').height;
+const screenHeightHalf = screenHeigth / 2;
+const screenWidthHalf = screenWidth / 2;
 
 export default class Card extends Component {
     render() {
         const styles = StyleSheet.create({
             estiloCard: {
                 backgroundColor: this.props.corFundo,
-                width: this.props.width,
-                height: this.props.height,
+                width: screenWidthHalf,
+                height: screenHeightHalf,
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center'

@@ -10,7 +10,7 @@ import {
 
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
-
+import Title from '../title';
 export default class TelaCana extends Component {
     render() {
         const elementosTollBar = [
@@ -18,13 +18,13 @@ export default class TelaCana extends Component {
                 corFundo: global.corSoja,
                 imagem: global.imagemSoja,
                 texto: "SOJA",
-                link : "TelaSoja"
+                link: "TelaSoja"
             },
             {
                 corFundo: global.corAlgodao,
                 imagem: global.imagemAlgodao,
                 texto: "ALGODAO",
-                link : "TelaAlgodao"
+                link: "TelaAlgodao"
             }, {
                 corFundo: global.corMilho,
                 imagem: global.imagemMilho,
@@ -32,10 +32,21 @@ export default class TelaCana extends Component {
                 link: "TelaMilho"
             }
         ]
+        const conteudo = {
+            corForte: global.corCanaForte,
+            corFraca: global.corCana,
+            imagemIcone: {
+                imagem: global.imagemCana,
+                width: 30,
+                height: 30,
+            },
+            texto: "CANA"
+        }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
+                <Title conteudo={conteudo} />
             </View>
         );
     }

@@ -39,7 +39,16 @@ export default class Title extends Component {
                         margin: 3,
                         marginLeft: 15
                     }} source={conteudo.imagemIcone.imagem} />
-                    <Text style={{ marginLeft: 15 , color : 'white'}}>{conteudo.texto}</Text>
+                    <Text style={{ marginLeft: 15, color: 'white' }}>{conteudo.texto}</Text>
+                    <View style={{flex: 1, flexDirection : 'column'}}>
+                        <Image source={global.voltar} style={{
+                            width: 30,
+                            margin : 3,
+                            marginRight : 15,
+                            alignSelf: 'flex-end',
+                            height: 30
+                        }} />
+                    </View>
                 </View>
             );
         }

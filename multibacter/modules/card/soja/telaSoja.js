@@ -10,6 +10,7 @@ import {
 
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
+import Title from '../title';
 
 export default class TelaSoja extends Component {
     render() {
@@ -35,10 +36,21 @@ export default class TelaSoja extends Component {
                 link: "TelaMilho"
             },
         ]
+        const conteudo = {
+            corForte: global.corSojaForte,
+            corFraca: global.corSoja,
+            imagemIcone: {
+                imagem: global.imagemSoja,
+                width: 30,
+                height: 30,
+            },
+            texto: "SOJA"
+        }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
+                <Title conteudo={conteudo}/>
             </View>
         );
     }

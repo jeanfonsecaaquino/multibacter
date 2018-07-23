@@ -18,7 +18,7 @@ export default class Tollbar extends Component {
     render() {
         renderizarTela = (tollBarItem) => {
             return (
-                <TouchableOpacity key={tollBarItem.texto} style={{ height: 30 }} onPress={() => { this.props.navigation.navigate(tollBarItem.link) }}>
+                <TouchableOpacity key={tollBarItem.texto} style={{ height: 35 }} onPress={() => { this.props.navigation.navigate(tollBarItem.link) }}>
                     <View key={tollBarItem.texto} style={{
                         width: tollBoxWidth,
                         backgroundColor: tollBarItem.corFundo,
@@ -28,8 +28,8 @@ export default class Tollbar extends Component {
                         alignItems: 'center',
                     }}>
                         <Image style={{
-                            width: 20,
-                            height: 20
+                            width: 23,
+                            height: 23
                         }} source={tollBarItem.imagem} />
                         <Text style={{ color: "white", marginLeft: 10 }}>{tollBarItem.texto}</Text>
                     </View>

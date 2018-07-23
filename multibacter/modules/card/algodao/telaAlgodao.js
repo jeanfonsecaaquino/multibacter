@@ -11,6 +11,7 @@ import {
 
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
+import Title from '../title';
 export default class TelaAlgodao extends Component {
     render() {
         const elementosTollBar = [
@@ -32,10 +33,21 @@ export default class TelaAlgodao extends Component {
                 link: "TelaMilho"
             }
         ]
+        const conteudo = {
+            corForte: global.corAlgodaoForte,
+            corFraca: global.corAlgodao,
+            imagemIcone: {
+                imagem: global.imagemAlgodao,
+                width: 30,
+                height: 30,
+            },
+            texto: "ALGODAO"
+        }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
+                <Title conteudo={conteudo} />
             </View>
         );
     }

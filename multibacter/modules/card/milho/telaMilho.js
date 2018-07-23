@@ -34,7 +34,7 @@ export default class TelaMilho extends Component {
             }
         ]
         const conteudo = {
-            corForte : "#8e9b30" ,
+            corForte : global.corMilhoForte,
             corFraca : global.corMilho,
             imagemIcone : {
                 imagem: global.imagemMilho,

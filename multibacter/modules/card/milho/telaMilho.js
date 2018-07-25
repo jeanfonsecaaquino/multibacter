@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
-import Title from '../title';
+import Conteudo from '../conteudo';
 
 export default class TelaMilho extends Component {
 
@@ -31,7 +31,7 @@ export default class TelaMilho extends Component {
                 imagem: global.imagemCana,
                 texto: "CANA",
                 link: "TelaCana"
-            }
+            },
         ]
         const conteudo = {
             corForte : global.corMilhoForte,
@@ -41,13 +41,35 @@ export default class TelaMilho extends Component {
                 width : 20,
                 height: 30,
             },
-            texto: "MILHO"
+            texto: "MILHO",
+            headers: [
+                {
+                    titulo: "MANEJO DE DOENÇA DE SOLO",
+                    bodys: [{
+                        subtitulo: "TITULO 1"
+                    }]
+                },
+                {
+                    titulo: "MANEJO DE DOENÇAS FOLIARES",
+                    bodys: [
+                        {
+                            subtitulo: "SUB TITULO 1",
+                        },
+                        {
+                            subtitulo: "SUB TITULO 2",
+                        },
+                        {
+                            subtitulo: "SUB TITULO 3",
+                        }
+                    ]
+                }
+            ],
         }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation}/>
-                <Title conteudo={conteudo}/>
+                <Conteudo conteudo={conteudo}/>
             </View>
         );
     }

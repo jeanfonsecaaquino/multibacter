@@ -23,6 +23,8 @@ global.imagemMilho = require("./assets/icone_milho.png");
 global.imagemAlgodao = require("./assets/icone_algodao.png");
 global.hamburguer = require("./assets/hamburguer.png");
 global.voltar = require('./assets/voltar.png');
+global.mais = require('./assets/mais.png');
+global.menos = require('./assets/menos.png');
 
 const RootStack = createStackNavigator(
     {

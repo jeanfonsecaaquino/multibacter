@@ -8,10 +8,9 @@ import {
     Dimensions
 } from 'react-native';
 
-
 import TextoLogo from '../../textoLogo/textoLogo'
 import TollBar from '../tollbar';
-import Title from '../title';
+import Conteudo from '../conteudo';
 export default class TelaAlgodao extends Component {
     render() {
         const elementosTollBar = [
@@ -41,13 +40,35 @@ export default class TelaAlgodao extends Component {
                 width: 30,
                 height: 30,
             },
-            texto: "ALGODAO"
+            texto: "ALGODAO",
+            headers: [
+                {
+                    titulo: "MANEJO DE DOENÇA DE SOLO",
+                    bodys: [{
+                        subtitulo: "TITULO 1"
+                    }]
+                },
+                {
+                    titulo: "MANEJO DE DOENÇAS FOLIARES",
+                    bodys: [
+                        {
+                            subtitulo: "SUB TITULO 1",
+                        },
+                        {
+                            subtitulo: "SUB TITULO 2",
+                        },
+                        {
+                            subtitulo: "SUB TITULO 3",
+                        }
+                    ]
+                }
+            ],
         }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
-                <Title conteudo={conteudo} />
+                <Conteudo conteudo={conteudo} />
             </View>
         );
     }

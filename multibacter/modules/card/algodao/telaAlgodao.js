@@ -47,20 +47,6 @@ export default class TelaAlgodao extends Component {
                     bodys: [{
                         subtitulo: "TITULO 1"
                     }]
-                },
-                {
-                    titulo: "MANEJO DE DOENÇAS FOLIARES",
-                    bodys: [
-                        {
-                            subtitulo: "SUB TITULO 1",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 2",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 3",
-                        }
-                    ]
                 }
             ],
         }
@@ -68,7 +54,7 @@ export default class TelaAlgodao extends Component {
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
-                <Conteudo conteudo={conteudo} />
+                <Conteudo conteudo={conteudo} urlConteudo={"algodao"}/>
             </View>
         );
     }

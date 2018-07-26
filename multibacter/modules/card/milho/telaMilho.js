@@ -25,7 +25,7 @@ export default class TelaMilho extends Component {
                 corFundo: global.corAlgodao,
                 imagem: global.imagemAlgodao,
                 texto: "ALGODAO",
-                link : "TelaAlgodao"
+                link: "TelaAlgodao"
             }, {
                 corFundo: global.corCana,
                 imagem: global.imagemCana,
@@ -34,42 +34,22 @@ export default class TelaMilho extends Component {
             },
         ]
         const conteudo = {
-            corForte : global.corMilhoForte,
-            corFraca : global.corMilho,
-            imagemIcone : {
+            corForte: global.corMilhoForte,
+            corFraca: global.corMilho,
+            imagemIcone: {
                 imagem: global.imagemMilho,
-                width : 20,
+                width: 20,
                 height: 30,
             },
-            texto: "MILHO",
-            headers: [
-                {
-                    titulo: "MANEJO DE DOENÇA DE SOLO",
-                    bodys: [{
-                        subtitulo: "TITULO 1"
-                    }]
-                },
-                {
-                    titulo: "MANEJO DE DOENÇAS FOLIARES",
-                    bodys: [
-                        {
-                            subtitulo: "SUB TITULO 1",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 2",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 3",
-                        }
-                    ]
-                }
-            ],
+            texto: "MILHO"
         }
+        
+
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
-                <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation}/>
-                <Conteudo conteudo={conteudo}/>
+                <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
+                <Conteudo conteudo={conteudo} urlConteudo={"milho"} />
             </View>
         );
     }

@@ -40,35 +40,13 @@ export default class TelaCana extends Component {
                 width: 30,
                 height: 30,
             },
-            texto: "CANA",
-            headers: [
-                {
-                    titulo: "MANEJO DE DOENÇA DE SOLO",
-                    bodys: [{
-                        subtitulo: "TITULO 1"
-                    }]
-                },
-                {
-                    titulo: "MANEJO DE DOENÇAS FOLIARES",
-                    bodys: [
-                        {
-                            subtitulo: "SUB TITULO 1",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 2",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 3",
-                        }
-                    ]
-                }
-            ],
+            texto: "CANA"
         }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
-                <Conteudo conteudo={conteudo} />
+                <Conteudo conteudo={conteudo} urlConteudo={"cana"}/>
             </View>
         );
     }

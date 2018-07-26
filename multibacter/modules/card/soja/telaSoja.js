@@ -15,13 +15,11 @@ import Conteudo from '../conteudo';
 export default class TelaSoja extends Component {
     render() {
         const elementosTollBar = [
-
             {
                 corFundo: global.corAlgodao,
                 imagem: global.imagemAlgodao,
                 texto: "ALGODAO",
                 link: "TelaAlgodao"
-
             },
             {
                 corFundo: global.corCana,
@@ -45,34 +43,12 @@ export default class TelaSoja extends Component {
                 height: 30,
             },
             texto: "SOJA",
-            headers: [
-                {
-                    titulo: "MANEJO DE DOENÇA DE SOLO",
-                    bodys: [{
-                        subtitulo: "TITULO 1"
-                    }]
-                },
-                {
-                    titulo: "MANEJO DE DOENÇAS FOLIARES",
-                    bodys: [
-                        {
-                            subtitulo: "SUB TITULO 1",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 2",
-                        },
-                        {
-                            subtitulo: "SUB TITULO 3",
-                        }
-                    ]
-                }
-            ],
         }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
-                <Conteudo conteudo={conteudo} />
+                <Conteudo conteudo={conteudo} urlConteudo={"soja"}/>
             </View>
         );
     }

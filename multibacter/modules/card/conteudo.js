@@ -16,11 +16,43 @@ import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion
 
 export default class Conteudo extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        const conteudo = props.conteudo;
+        this.state = { conteudo }
+    }
+
+    componentDidMount() {
+        return fetch('https://multibacter-backend-vvvsqjufgk.now.sh/' + this.props.urlConteudo)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                let conteudo = this.state.conteudo;
+                conteudo.headers = responseJson.headers;
+                this.setState(conteudo);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
     render() {
+        const carregaConteudo = () => {
+            if (this.state.conteudo.headers) {
+                return (
+                    <ScrollView>
+                        {this.props.conteudo.headers.map((header) => {
+                            return renderizarAcordion(this.props.conteudo.corForte, header);
+                        })}
+                    </ScrollView>
+                )
+            } else {
+                return (
+                    <View style={{ alignContent: 'center', alignItems: 'center' }}>
+                        <Image style={{ width: 200, height: 200 }} source={require('../../assets/loading.gif')} />
+                    </View>
+                )
+            }
+        }
         const renderizarTitulo = (conteudo) => {
             return (
                 <View style={{
@@ -58,6 +90,7 @@ export default class Conteudo extends Component {
             );
         }
 
+
         const renderizarSubtitulo = (cor, body) => {
             return (
                 <View key={body.subtitulo} style={{ flex: 1, flexDirection: 'row', marginBottom: 5, backgroundColor: cor, marginLeft: 40 }}>
@@ -66,7 +99,6 @@ export default class Conteudo extends Component {
                 </View>
             )
         }
-
         const renderizarAcordion = (cor, header) => {
             return (
                 <View key={header.titulo}>
@@ -98,11 +130,7 @@ export default class Conteudo extends Component {
                 <View style={{ height: 50 }}>
                     {renderizarTitulo(this.props.conteudo)}
                 </View>
-                <ScrollView>
-                    {this.props.conteudo.headers.map((header) => {
-                        return renderizarAcordion(this.props.conteudo.corForte, header);
-                    })}
-                </ScrollView>
+                {carregaConteudo()}
             </View >
         );
     }

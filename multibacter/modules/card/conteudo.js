@@ -23,7 +23,7 @@ export default class Conteudo extends Component {
     }
 
     componentDidMount() {
-        return fetch('https://multibacter-backend-vvvsqjufgk.now.sh/' + this.props.urlConteudo)
+        return fetch(global.urlBackend+ this.props.urlConteudo)
             .then((response) => response.json())
             .then((responseJson) => {
                 let conteudo = this.state.conteudo;
@@ -48,7 +48,7 @@ export default class Conteudo extends Component {
             } else {
                 return (
                     <View style={{ alignContent: 'center', alignItems: 'center' }}>
-                        <Image style={{ width: 200, height: 200 }} source={require('../../assets/loading.gif')} />
+                        <Image style={{ width: 200, height: 200 }} source={global.loading} />
                     </View>
                 )
             }
@@ -102,7 +102,7 @@ export default class Conteudo extends Component {
         const renderizarAcordion = (cor, header) => {
             return (
                 <View key={header.titulo}>
-                    <Collapse style={{ marginBottom: 3 }}>
+                    <Collapse style={{marginTop : 5 }}>
                         <CollapseHeader style={{ marginBottom: 5, backgroundColor: cor, height: 50 }}>
                             <View style={{ flex: 1, flexDirection: 'row' }}>
                                 <Image source={global.mais} style={styles.imagemMaisHeader} />

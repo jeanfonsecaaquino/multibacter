@@ -25,6 +25,11 @@ global.hamburguer = require("./assets/hamburguer.png");
 global.voltar = require('./assets/voltar.png');
 global.mais = require('./assets/mais.png');
 global.menos = require('./assets/menos.png');
+global.loading = require('./assets/loading.gif')
+
+//URL do backend
+global.urlBackend = "https://multibacter-backend-vvvsqjufgk.now.sh/"
+
 
 const RootStack = createStackNavigator(
     {

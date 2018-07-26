@@ -40,15 +40,7 @@ export default class TelaAlgodao extends Component {
                 width: 30,
                 height: 30,
             },
-            texto: "ALGODAO",
-            headers: [
-                {
-                    titulo: "MANEJO DE DOENÇA DE SOLO",
-                    bodys: [{
-                        subtitulo: "TITULO 1"
-                    }]
-                }
-            ],
+            texto: "ALGODAO"
         }
         return (
             <View style={{ flexDirection: "column", flex: 1 }}>

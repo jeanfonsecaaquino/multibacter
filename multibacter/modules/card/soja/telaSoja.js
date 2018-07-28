@@ -37,6 +37,7 @@ export default class TelaSoja extends Component {
         const conteudo = {
             corForte: global.corSojaForte,
             corFraca: global.corSoja,
+            corMediana : global.corSojaMediano,
             imagemIcone: {
                 imagem: global.imagemSoja,
                 width: 30,

@@ -5,7 +5,7 @@ import {
     Text,
     View,
     Image,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 
 import TextoLogo from '../../textoLogo/textoLogo'
@@ -35,6 +35,7 @@ export default class TelaAlgodao extends Component {
         const conteudo = {
             corForte: global.corAlgodaoForte,
             corFraca: global.corAlgodao,
+            corMediana : global.corAlgodaoMediano,
             imagemIcone: {
                 imagem: global.imagemAlgodao,
                 width: 30,
@@ -46,7 +47,7 @@ export default class TelaAlgodao extends Component {
             <View style={{ flexDirection: "column", flex: 1 }}>
                 <TextoLogo />
                 <TollBar elementosTollBar={elementosTollBar} navigation={this.props.navigation} />
-                <Conteudo conteudo={conteudo} urlConteudo={"algodao"}/>
+                <Conteudo conteudo={conteudo} urlConteudo={"algodao"} />
             </View>
         );
     }

@@ -8,13 +8,17 @@ import TelaSoja from './modules/card/soja/telaSoja';
 
 //Cores de cada Icone
 global.corCana = "#e76632";
+global.corCanaMediano = "#c2582c";
 global.corCanaForte = "#a34924";
 global.corMilho = "#9ead35";
-global.corMilhoForte = "#8e9b30";
+global.corMilhoMediano = "#8e9b30";
+global.corMilhoForte = "#727d26";
 global.corAlgodao = "#3a281e";
+global.corAlgodaoMediano = "#624535";
 global.corAlgodaoForte = "#502a16";
 global.corSoja = "#f4ba41";
 global.corSojaForte = "#b78c31";
+global.corSojaMediano = "#ce9d35";
 
 //Icones
 global.imagemSoja = require("./assets/icone_soja.png");
@@ -25,10 +29,12 @@ global.hamburguer = require("./assets/hamburguer.png");
 global.voltar = require('./assets/voltar.png');
 global.mais = require('./assets/mais.png');
 global.menos = require('./assets/menos.png');
-global.loading = require('./assets/loading.gif')
+global.loading = require('./assets/loading.gif');
+global.setaEsquerda = require('./assets/seta-esquerda.png');
+global.setaDireita = require('./assets/seta-direita.png');
 
 //URL do backend
-global.urlBackend = "https://multibacter-backend-vvvsqjufgk.now.sh/"
+global.urlBackend = "https://multibacter-backend-advhcpmont.now.sh/"
 
 
 const RootStack = createStackNavigator(

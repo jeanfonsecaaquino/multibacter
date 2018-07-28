@@ -35,6 +35,7 @@ export default class TelaCana extends Component {
         const conteudo = {
             corForte: global.corCanaForte,
             corFraca: global.corCana,
+            corMediana : global.corCanaMediano,
             imagemIcone: {
                 imagem: global.imagemCana,
                 width: 30,

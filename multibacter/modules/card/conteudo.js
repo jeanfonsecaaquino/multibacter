@@ -72,7 +72,7 @@ export default class Conteudo extends Component {
             } else {
                 return (
                     <View style={{ alignContent: 'center', alignItems: 'center' }}>
-                        <Image style={{ width: 200, height: 200 }} source={global.loading} />
+                        <Text>Carregando...</Text>
                     </View>
                 )
             }
@@ -144,6 +144,23 @@ export default class Conteudo extends Component {
                 </View>
             );
         }
+
+        const pularItem = (sinalIndice) => {
+            let body = this.state.body;
+            const header = this.state.header;
+
+            let indice = header.bodys.findIndex(i => i.letra === body.letra);
+            indice += sinalIndice;
+            if (indice < 0) {
+                indice = header.bodys.length - 1;
+            }
+            if (indice === header.bodys.length) {
+                indice = 0;
+            }
+            body = header.bodys[indice];
+            this.setState({ body: body })
+        }
+
         const renderizarDetalhes = () => {
             return (
                 <View style={{
@@ -157,13 +174,17 @@ export default class Conteudo extends Component {
                     </View>
                     <View style={{ width: screenWidth, flex: 1, flexDirection: 'row', alignContent: "center", alignItems: "center", flexBasis: '20%' }}>
                         <View style={{ flex: 1, flexDirection: 'column', backgroundColor: this.props.conteudo.corForte, height: 50, flexBasis: "7%" }}>
-                            <Image style={{ alignSelf: 'flex-start', width: 20, height: 20, marginTop: 15 }} source={global.setaEsquerda} />
+                            <TouchableOpacity onPress={() => { pularItem(-1) }}>
+                                <Image style={{ alignSelf: 'flex-start', width: 20, height: 20, marginTop: 15 }} source={global.setaEsquerda} />
+                            </TouchableOpacity>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'column', backgroundColor: this.props.conteudo.corMediana, flexBasis: "86%", height: 50, alignContent: 'center', alignItems: 'center' }}>
                             <Text style={{ marginTop: '5%', fontSize: 14, fontWeight: 'bold', color: 'white' }}>{this.state.body.subtitulo}</Text>
                         </View>
                         <View style={{ flex: 1, flexDirection: 'column', backgroundColor: this.props.conteudo.corForte, height: 50, flexBasis: "7%" }}>
-                            <Image style={{ alignSelf: 'flex-end', alignItems: 'center', width: 20, height: 20, marginTop: 15 }} source={global.setaDireita} />
+                            <TouchableOpacity onPress={() => { pularItem(1) }}>
+                                <Image style={{ alignSelf: 'flex-end', alignItems: 'center', width: 20, height: 20, marginTop: 15 }} source={global.setaDireita} />
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <ScrollView style={{ flexBasis: '60%' }}>
@@ -181,7 +202,7 @@ export default class Conteudo extends Component {
                             })}
                         </View>
                     </ScrollView>
-                </View>
+                </View >
             )
         }
 
@@ -192,7 +213,6 @@ export default class Conteudo extends Component {
                 </View>
             )
         }
-
         const renderizarIndiceAlfabeto = () => {
             const indiceAlfabeto = require('./indiceAlfabeto');
             let body = this.state.body;
@@ -216,13 +236,11 @@ export default class Conteudo extends Component {
                             return (<Text onPress={() => { this.setState({ body: linkBody, header: header }) }} key={indice.letra} style={estiloLetra}>{indice.letra}</Text>)
                         } else {
                             return (<Text key={indice.letra} style={estiloLetra}>{indice.letra}</Text>)
-
                         }
                     })}
                 </View>
             )
         }
-
 
         return (
             <View style={{

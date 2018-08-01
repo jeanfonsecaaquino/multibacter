@@ -10,8 +10,16 @@ const screenWidth = Dimensions.get('window').width;
 
 export default class TextoLogo extends Component {
     render() {
+        let estiloCombinado; 
+        let {viewTextoLogo} = styles;
+        if(this.props.estilo){
+            estilo = {...this.props.estilo};
+            estiloCombinado = StyleSheet.flatten([viewTextoLogo, estilo]);
+        }else{
+            estiloCombinado = StyleSheet.flatten([viewTextoLogo]);
+        }
         return (
-            <View style={styles.viewTextoLogo}>
+            <View style={estiloCombinado}>
                 <Image style={{ width: screenWidth, height: 70 }} source={require("../../assets/logo_texto.png")} />
             </View>
         );

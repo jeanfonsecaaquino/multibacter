@@ -83,8 +83,8 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         applicationId "com.multibacter"
@@ -126,10 +126,13 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-camera')
+         project(':react-native-camera')
     compile (project(':react-native-camera')){
         exclude group : "com.google.android.gms"
-        compile 'com.android.support:exifinterface:25.+'
+        exclude group: "com.android.support"
+        compile ('com.android.support:exifinterface:26.0.1') {
+            force = true;
+        }
         compile ('com.google.android.gms:play-services-vision:10.2.0'){
             force = true
         }

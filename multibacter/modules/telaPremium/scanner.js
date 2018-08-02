@@ -1,49 +1,106 @@
 import React, { Component } from 'react';
-
 import {
     AppRegistry,
     StyleSheet,
     Text,
-    TouchableOpacity,
+    View,
     Linking,
+    Vibration,
+    Dimensions
 } from 'react-native';
 
-import QRCodeScanner from 'react-native-qrcode-scanner';
-import { View } from '../../node_modules/native-base';
+import Camera from 'react-native-camera';
 
 export default class Scanner extends Component {
-    onSuccess(e) {
-        alert(e.data);
+
+    constructor(props){
+        super(props);
+        this.state = { scanning : true}
     }
 
+    _handleBarCodeRead(e) {
+        Vibration.vibrate();
+        this.setState({ scanning: false });
+        Linking.openURL(e.data).catch(err => console.error('An error occured', err));
+        return;
+    }
+    getInitialState() {
+        return {
+            scanning: true,
+            cameraType: Camera.constants.Type.back
+        }
+    }
     render() {
-        return (
-            <QRCodeScanner
-                onRead={this.onSuccess.bind(this)}
-                topContent={
-                    <Text style={styles.centerText}>APROXIME SEU LEITOR QR CODE E TENHA TODOS OS CONTEÚDOS DISPONÍVEIS</Text>
-                }
-            />
-        );
+        console.log(this.state);
+        if (this.state.scanning) {
+            return (
+                <View style={styles.container}>
+                    <Text style={styles.welcome}>
+                        Barcode Scanner
+        </Text>
+                    <View style={styles.rectangleContainer}>
+                        <Camera style={styles.camera} type={this.state.cameraType} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+                            <View style={styles.rectangleContainer}>
+                                <View style={styles.rectangle} />
+                            </View>
+                        </Camera>
+                    </View>
+                    <Text style={styles.instructions}>
+                        Double tap R on your keyboard to reload,{'\n'}
+                    </Text>
+                </View>
+            );
+        }
+        else {
+            return (<View style={styles.container}>
+                <Text style={styles.welcome}>
+                    Barcode Scanner
+        </Text>
+                <Text style={styles.instructions}>
+                    Double tap R on your keyboard to reload,{'\n'}
+                </Text>
+            </View>);
+        }
     }
 }
 
 const styles = StyleSheet.create({
-    centerText: {
+    container: {
         flex: 1,
-        fontSize: 18,
-        padding: 32,
-        color: '#777',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
     },
-    textBold: {
-        fontWeight: '500',
-        color: '#000',
+    camera: {
+        flex: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        height: Dimensions.get('window').width,
+        width: Dimensions.get('window').width,
     },
-    buttonText: {
-        fontSize: 21,
-        color: 'rgb(0,122,255)',
+    welcome: {
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
     },
-    buttonTouchable: {
-        padding: 16,
+    instructions: {
+        textAlign: 'center',
+        color: '#333333',
+        marginBottom: 5,
+    },
+    rectangleContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+    },
+
+    rectangle: {
+        height: 250,
+        width: 250,
+        borderWidth: 2,
+        borderColor: '#00FF00',
+        backgroundColor: 'transparent',
     },
 });

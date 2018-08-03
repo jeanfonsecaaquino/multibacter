@@ -19,9 +19,7 @@ export default class Scanner extends Component {
     }
 
     _handleBarCodeRead(e) {
-        Vibration.vibrate();
-        this.setState({ scanning: false });
-        Linking.openURL(e.data).catch(err => console.error('An error occured', err));
+        alert(e.data)
         return;
     }
     getInitialState() {

@@ -27,7 +27,7 @@ export default class Conteudo extends Component {
     }
 
     recuperaDados() {
-        return fetch(global.urlBackend + this.props.urlConteudo)
+        return fetch(global.urlBackend + "/conteudo/" + this.props.urlConteudo)
             .then(response => response.json())
             .then((responseJson) => {
                 let conteudo = this.state.conteudo;

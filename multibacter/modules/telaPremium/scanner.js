@@ -30,7 +30,7 @@ export default class Scanner extends Component {
             if(responseJson.mensagem==="Qr Code Valido"){
                 this.props.navigation.navigate("TelaInicial")
             }else{
-                alert("Codigo Invalido");
+                alert("Qr code Invalido");
             }
         }).catch((error) => {
             console.log(error);

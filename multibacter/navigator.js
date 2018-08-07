@@ -39,7 +39,7 @@ global.premium = require('./assets/premium.png');
 global.logo = require('./assets/logo.png')
 
 //URL do backend
-global.urlBackend = "https://multibacter-backend-cwcssbbzhb.now.sh/"
+global.urlBackend = "https://multibacter-backend.now.sh"
 
 
 const RootStack = createStackNavigator(

@@ -10,55 +10,48 @@ import {
 } from 'react-native';
 
 import Camera from 'react-native-camera';
+import TextoLogo from '../textoLogo/textoLogo'
 
 export default class Scanner extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = { scanning : true}
+        this.state = {cameraType: Camera.constants.Type.back}
     }
 
-    _handleBarCodeRead(e) {
-        alert(e.data)
-        return;
+    handleBarCodeRead(e) {
+        Vibration.vibrate();
+        return fetch(global.urlBackend + "/qrcode/" +  e.data).then((response) => {
+            response.json();
+        })
+        .then((responseJson) => {
+            if(responseJson.mensagem==="Qr Code Valido"){
+                this.props.navigation.navigate("TelaInicial")
+            }else{
+                alert("Qr code Invalido");
+            }
+        }).catch((error) => {
+            console.log(error);
+        });
     }
-    getInitialState() {
-        return {
-            scanning: true,
-            cameraType: Camera.constants.Type.back
-        }
-    }
+    
     render() {
-        console.log(this.state);
-        if (this.state.scanning) {
-            return (
+        return (
+            <View style={styles.logo}>
+                <TextoLogo />
                 <View style={styles.container}>
-                    <Text style={styles.welcome}>
-                        Barcode Scanner
-        </Text>
+                    <Text style={{ fontSize: 20 , color : 'white', marginTop : 10}}>SEJA PREMIUM</Text>
+                    <Text style={{ fontSize: 15 , color : 'white', marginTop : 10 , textAlign:'center'}}>APROXIME SEU CELULAR NO LEITOR QR E TENHA TODOS OS CONTEUDOS DISPONIVEIS</Text>
                     <View style={styles.rectangleContainer}>
-                        <Camera style={styles.camera} type={this.state.cameraType} onBarCodeRead={this._handleBarCodeRead.bind(this)}>
+                        <Camera style={styles.camera} type={this.state.cameraType} onBarCodeRead={this.handleBarCodeRead.bind(this)}>
                             <View style={styles.rectangleContainer}>
                                 <View style={styles.rectangle} />
                             </View>
                         </Camera>
                     </View>
-                    <Text style={styles.instructions}>
-                        Double tap R on your keyboard to reload,{'\n'}
-                    </Text>
                 </View>
-            );
-        }
-        else {
-            return (<View style={styles.container}>
-                <Text style={styles.welcome}>
-                    Barcode Scanner
-        </Text>
-                <Text style={styles.instructions}>
-                    Double tap R on your keyboard to reload,{'\n'}
-                </Text>
-            </View>);
-        }
+            </View>
+        );
     }
 }
 
@@ -67,7 +60,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: "#9ead35"
+    },
+    logo: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     camera: {
         flex: 0,

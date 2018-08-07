@@ -6,9 +6,11 @@ import {
     View,
     Linking,
     Vibration,
-    Dimensions
+    Dimensions,
+    Button,
+    AsyncStorage
 } from 'react-native';
-
+// 
 import Camera from 'react-native-camera';
 import TextoLogo from '../textoLogo/textoLogo'
 
@@ -16,32 +18,33 @@ export default class Scanner extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {cameraType: Camera.constants.Type.back}
+        this.state = { cameraType: Camera.constants.Type.back, codigoValidado: false };
     }
 
     handleBarCodeRead(e) {
         Vibration.vibrate();
-        return fetch(global.urlBackend + "/qrcode/" +  e.data).then((response) => {
-            response.json();
-        })
-        .then((responseJson) => {
-            if(responseJson.mensagem==="Qr Code Valido"){
-                this.props.navigation.navigate("TelaInicial")
-            }else{
+        return fetch(global.urlBackend + "/qrcode/" + e.data).then((response) => {
+            return response.json();
+        }).then((responseJson) => {
+            if (responseJson.mensagem === "Qr Code Valido") {
+                this.setState({ codigoValidado: true });
+                AsyncStorage.setItem("multibacterPremium","multibacterPremium");
+                this.props.navigation.navigate("Home")
+            } else {
                 alert("Qr code Invalido");
             }
         }).catch((error) => {
             console.log(error);
         });
     }
-    
+
     render() {
-        return (
-            <View style={styles.logo}>
-                <TextoLogo />
+
+        const renderizarCamera = () => {
+            return (
                 <View style={styles.container}>
-                    <Text style={{ fontSize: 20 , color : 'white', marginTop : 10}}>SEJA PREMIUM</Text>
-                    <Text style={{ fontSize: 15 , color : 'white', marginTop : 10 , textAlign:'center'}}>APROXIME SEU CELULAR NO LEITOR QR E TENHA TODOS OS CONTEUDOS DISPONIVEIS</Text>
+                    <Text style={{ fontSize: 20, color: 'white', marginTop: 10 }}>SEJA PREMIUM</Text>
+                    <Text style={{ fontSize: 15, color: 'white', marginTop: 10, textAlign: 'center' }}>APROXIME SEU CELULAR NO LEITOR QR E TENHA TODOS OS CONTEUDOS DISPONIVEIS</Text>
                     <View style={styles.rectangleContainer}>
                         <Camera style={styles.camera} type={this.state.cameraType} onBarCodeRead={this.handleBarCodeRead.bind(this)}>
                             <View style={styles.rectangleContainer}>
@@ -50,6 +53,13 @@ export default class Scanner extends Component {
                         </Camera>
                     </View>
                 </View>
+            )
+        }
+
+        return (
+            <View style={styles.logo}>
+                <TextoLogo />
+                {renderizarCamera()}
             </View>
         );
     }

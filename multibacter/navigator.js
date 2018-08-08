@@ -24,19 +24,31 @@ global.premiumBackgroundButton = '#888787';
 global.premiumBackground = '#9ead35';
 
 //Icones
-global.imagemSoja = require("./assets/icone_soja.png");
-global.imagemCana = require("./assets/icone_cana.png");
-global.imagemMilho = require("./assets/icone_milho.png");
-global.imagemAlgodao = require("./assets/icone_algodao.png");
-global.hamburguer = require("./assets/hamburguer.png");
-global.voltar = require('./assets/voltar.png');
-global.mais = require('./assets/mais.png');
-global.menos = require('./assets/menos.png');
-global.loading = require('./assets/loading.gif');
-global.setaEsquerda = require('./assets/seta-esquerda.png');
-global.setaDireita = require('./assets/seta-direita.png');
-global.premium = require('./assets/premium.png');
-global.logo = require('./assets/logo.png')
+import imagemSoja from "./assets/icone_soja.png";
+import imagemCana from "./assets/icone_cana.png";
+import imagemMilho from "./assets/icone_milho.png";
+import imagemAlgodao from "./assets/icone_algodao.png";
+import hamburguer from "./assets/hamburguer.png";
+import voltar from "./assets/voltar.png";
+import mais from "./assets/mais.png";
+import menos from "./assets/menos.png";
+import setaEsquerda from "./assets/seta-esquerda.png";
+import setaDireita from "./assets/seta-direita.png";
+import premium from './assets/premium.png';
+import logo from "./assets/logo.png";
+
+global.imagemSoja = imagemSoja;
+global.imagemCana = imagemCana;
+global.imagemMilho = imagemMilho;
+global.imagemAlgodao = imagemAlgodao;
+global.hamburguer = hamburguer;
+global.voltar = voltar;
+global.mais = mais;
+global.menos = menos;
+global.setaEsquerda = setaEsquerda;
+global.setaDireita = setaDireita;
+global.premium = premium;
+global.logo = logo;
 
 //URL do backend
 global.urlBackend = "https://multibacter-backend.now.sh"

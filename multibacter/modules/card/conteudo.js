@@ -15,6 +15,7 @@ const screenWidth = Dimensions.get('window').width;
 const screenHeigth = Dimensions.get('window').height;
 import { Collapse, CollapseHeader, CollapseBody, AccordionList } from 'accordion-collapse-react-native'
 import { Thumbnail } from '../../node_modules/native-base';
+import indiceAlfabeto from './indiceAlfabeto';
 
 export default class Conteudo extends Component {
 
@@ -214,7 +215,6 @@ export default class Conteudo extends Component {
             )
         }
         const renderizarIndiceAlfabeto = () => {
-            const indiceAlfabeto = require('./indiceAlfabeto');
             let body = this.state.body;
             let header = this.state.header;
             let conteudo = this.state.conteudo;

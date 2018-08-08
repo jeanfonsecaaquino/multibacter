@@ -10,7 +10,6 @@ import {
     Button,
     AsyncStorage
 } from 'react-native';
-// 
 import Camera from 'react-native-camera';
 import TextoLogo from '../textoLogo/textoLogo'
 

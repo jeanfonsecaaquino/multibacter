@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
+import texto_logo from "../../assets/logo_texto.png";
 
 export default class TextoLogo extends Component {
     render() {
@@ -20,7 +21,7 @@ export default class TextoLogo extends Component {
         }
         return (
             <View style={estiloCombinado}>
-                <Image style={{ width: screenWidth, height: 70 }} source={require("../../assets/logo_texto.png")} />
+                <Image style={{ width: screenWidth, height: 70 }} source={texto_logo} />
             </View>
         );
     }

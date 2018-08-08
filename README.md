@@ -19,3 +19,6 @@ doLast {
                     moveFunc.curry("xxhdpi").call()
                     moveFunc.curry("xxxhdpi").call()
                 }
+
+### Linkar Camera
+react-native link react-native-camera
